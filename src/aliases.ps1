@@ -12,6 +12,9 @@ function gaa {
 function gapa {
 	git add --patch
 }
+function gau {
+	git add --update
+}
 function gb {
 	git branch
 }
