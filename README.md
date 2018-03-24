@@ -12,7 +12,7 @@ A [PowerShell](https://microsoft.com/powershell) module that provide partial **[
 Install from [PowerShell Gallery](https://www.powershellgallery.com/)
 
 ```powershell
-Install-Module git-aliases -Scope CurrentUser
+Install-Module git-aliases -Scope CurrentUser -AllowClobber
 ```
 
 ---
