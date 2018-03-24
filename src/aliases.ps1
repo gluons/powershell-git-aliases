@@ -169,7 +169,7 @@ function glgga {
 	git log --graph --decorate --all
 }
 function glgm {
-	git log --graph --max-count = 10
+	git log --graph --max-count=10
 }
 function glgp {
 	git log --stat --color -p
@@ -196,7 +196,7 @@ function gmt {
 	git mergetool --no-prompt
 }
 function gmtvim {
-	git mergetool --no-prompt --tool = vimdiff
+	git mergetool --no-prompt --tool=vimdiff
 }
 function gmum {
 	git merge upstream/master
@@ -288,7 +288,7 @@ function gsi {
 	git submodule init
 }
 function gsps {
-	git show --pretty = short --show-signature
+	git show --pretty=short --show-signature
 }
 function gsr {
 	git svn rebase
@@ -346,7 +346,7 @@ function gvt {
 	git verify-tag
 }
 function gwch {
-	git whatchanged -p --abbrev-commit --pretty = medium
+	git whatchanged -p --abbrev-commit --pretty=medium
 }
 function gwip {
 	git add -A
