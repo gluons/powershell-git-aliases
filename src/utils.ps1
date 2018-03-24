@@ -1,5 +1,10 @@
 function Get-Git-CurrentBranch {
-	return git rev-parse --abbrev-ref HEAD
+	git symbolic-ref --quiet HEAD *> $null
+	if ($LASTEXITCODE -eq 0) {
+		return git rev-parse --abbrev-ref HEAD
+	} else {
+		return
+	}
 }
 
 function Test-CommandExists ([string] $Command) {
