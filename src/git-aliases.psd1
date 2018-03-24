@@ -12,7 +12,7 @@
 RootModule = 'git-aliases.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1.0'
+ModuleVersion = '0.0.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -30,7 +30,7 @@ Copyright = '(c) Saran Tanpituckpong. All rights reserved.'
 Description = "A PowerShell module that provide partial Git aliases from Oh My Zsh's git plugin."
 
 # Minimum version of the Windows PowerShell engine required by this module
-PowerShellVersion = '4.0'
+# PowerShellVersion = ''
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
@@ -69,13 +69,13 @@ PowerShellVersion = '4.0'
 FunctionsToExport = '*'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = @()
+# CmdletsToExport = @()
 
 # Variables to export from this module
-VariablesToExport = @()
+# VariablesToExport = @()
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = '*'
+# AliasesToExport = @()
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()
@@ -92,7 +92,7 @@ PrivateData = @{
 	PSData = @{
 
 		# Tags applied to this module. These help with module discovery in online galleries.
-		Tags = @('git', 'alias', 'aliases')
+		Tags = @('git', 'alias', 'aliases', 'oh-my-zsh')
 
 		# A URL to the license for this module.
 		LicenseUri = 'https://github.com/gluons/powershell-git-aliases/blob/master/LICENSE'
