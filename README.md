@@ -4,20 +4,3 @@
 > 🚧 Under Construction. Not ready to use.
 
 A [PowerShell](https://github.com/PowerShell/PowerShell) module that provide partial **[Git](https://git-scm.com/)** aliases from [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)'s [git plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git).
-
-## Installation
-
-Clone this repo
-
-```
-git clone https://github.com/gluons/powershell-git-aliases.git
-```
-
-And run
-
-```powershell
-.\install.ps1
-```
-
-You can also add above line into your PowerShell profile (`$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`).
-> You may have to use full path to this script.
