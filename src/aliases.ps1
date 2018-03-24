@@ -22,7 +22,10 @@ function gba {
 	git branch -a
 }
 function gbda {
-	git branch --merged | command grep -vE "^(*|\smaster\s$)" | command xargs -n 1 git branch -d
+	$MergedBranchs = $(git branch --merged | Select-String "^(\*|\s*(master|develop|dev)\s*$)" -NotMatch).Line
+	$MergedBranchs | ForEach-Object {
+		git branch -d $_
+	}
 }
 function gbl {
 	git blame -b -w
@@ -154,7 +157,7 @@ function gignore {
 	git update-index --assume-unchanged
 }
 function gignored {
-	git ls-files -v | grep "^:lower:"
+	git ls-files -v | Select-String "^[a-z]" -CaseSensitive
 }
 function gl {
 	git pull
@@ -262,12 +265,12 @@ function grset {
 }
 function grt {
 	try {
-		$path = git rev-parse --show-toplevel
+		$RootPath = git rev-parse --show-toplevel
 	}
 	catch {
-		$path = "."
+		$RootPath = "."
 	}
-	Set-Location $path
+	Set-Location $RootPath
 }
 function gru {
 	git reset --
@@ -330,7 +333,7 @@ function gunignore {
 	git update-index --no-assume-unchanged
 }
 function gunwip {
-	git log -n 1 | grep -q -c "--wip--"
+	Write-Output $(git log -n 1 | Select-String "--wip--" -Quiet).Count
 	git reset HEAD~1
 }
 function gup {
@@ -350,6 +353,6 @@ function gwch {
 }
 function gwip {
 	git add -A
-	git rm $(git ls-files --deleted) 2> /dev/null
-	git commit -m "--wip--"
+	git rm $(git ls-files --deleted) 2> $null
+	git commit --no-verify -m "--wip-- [skip ci]"
 }
