@@ -7,12 +7,8 @@ function Get-Git-CurrentBranch {
 	}
 }
 
-function Test-CommandExists ([string] $Command) {
-	return [bool](Get-Command $Command -ErrorAction SilentlyContinue)
-}
-
 function Remove-Alias ([string] $AliasName) {
-	if (Test-CommandExists $AliasName) {
+	while (Test-Path Alias:$AliasName) {
 		Remove-Item Alias:$AliasName -Force 2> $null
 	}
 }
