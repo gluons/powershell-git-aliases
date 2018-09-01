@@ -11,25 +11,25 @@ Remove-Alias gp
 Remove-Alias gpv
 
 function g {
-	git
+	git $args
 }
 function ga {
-	git add
+	git add $args
 }
 function gaa {
-	git add --all
+	git add --all $args
 }
 function gapa {
-	git add --patch
+	git add --patch $args
 }
 function gau {
-	git add --update
+	git add --update $args
 }
 function gb {
-	git branch
+	git branch $args
 }
 function gba {
-	git branch -a
+	git branch -a $args
 }
 function gbda {
 	$MergedBranchs = $(git branch --merged | Select-String "^(\*|\s*(master|develop|dev)\s*$)" -NotMatch).Line
@@ -38,112 +38,112 @@ function gbda {
 	}
 }
 function gbl {
-	git blame -b -w
+	git blame -b -w $args
 }
 function gbnm {
-	git branch --no-merged
+	git branch --no-merged $args
 }
 function gbr {
-	git branch --remote
+	git branch --remote $args
 }
 function gbs {
-	git bisect
+	git bisect $args
 }
 function gbsb {
-	git bisect bad
+	git bisect bad $args
 }
 function gbsg {
-	git bisect good
+	git bisect good $args
 }
 function gbsr {
-	git bisect reset
+	git bisect reset $args
 }
 function gbss {
-	git bisect start
+	git bisect start $args
 }
 function gc {
-	git commit -v
+	git commit -v $args
 }
 function gc! {
-	git commit -v --amend
+	git commit -v --amend $args
 }
 function gca {
-	git commit -v -a
+	git commit -v -a $args
 }
 function gcam {
-	git commit -a -m
+	git commit -a -m $args
 }
 function gca! {
-	git commit -v -a --amend
+	git commit -v -a --amend $args
 }
 function gcan! {
-	git commit -v -a -s --no-edit --amend
+	git commit -v -a -s --no-edit --amend $args
 }
 function gcb {
-	git checkout -b
+	git checkout -b $args
 }
 function gcf {
-	git config --list
+	git config --list $args
 }
 function gcl {
-	git clone --recursive
+	git clone --recursive $args
 }
 function gclean {
-	git clean -df
+	git clean -df $args
 }
 function gcm {
-	git checkout master
+	git checkout master $args
 }
 function gcd {
-	git checkout develop
+	git checkout develop $args
 }
 function gcmsg {
-	git commit -m
+	git commit -m $args
 }
 function gco {
-	git checkout
+	git checkout $args
 }
 function gcount {
-	git shortlog -sn
+	git shortlog -sn $args
 }
 function gcp {
-	git cherry-pick
+	git cherry-pick $args
 }
 function gcpa {
-	git cherry-pick --abort
+	git cherry-pick --abort $args
 }
 function gcpc {
-	git cherry-pick --continue
+	git cherry-pick --continue $args
 }
 function gcs {
-	git commit -S
+	git commit -S $args
 }
 function gd {
-	git diff
+	git diff $args
 }
 function gdca {
-	git diff --cached
+	git diff --cached $args
 }
 function gdt {
-	git diff-tree --no-commit-id --name-only -r
+	git diff-tree --no-commit-id --name-only -r $args
 }
 function gdw {
-	git diff --word-diff
+	git diff --word-diff $args
 }
 function gf {
-	git fetch
+	git fetch $args
 }
 function gfa {
-	git fetch --all --prune
+	git fetch --all --prune $args
 }
 function gfo {
-	git fetch origin
+	git fetch origin $args
 }
 function gg {
-	git gui citool
+	git gui citool $args
 }
 function gga {
-	git gui citool --amend
+	git gui citool --amend $args
 }
 function ggf {
 	$CurrentBranch = Get-Git-CurrentBranch
@@ -151,7 +151,7 @@ function ggf {
 	git push --force origin $CurrentBranch
 }
 function ghh {
-	git help
+	git help $args
 }
 function ggsup {
 	$CurrentBranch = Get-Git-CurrentBranch
@@ -164,61 +164,61 @@ function gpsup {
 	git push --set-upstream origin $CurrentBranch
 }
 function gignore {
-	git update-index --assume-unchanged
+	git update-index --assume-unchanged $args
 }
 function gignored {
 	git ls-files -v | Select-String "^[a-z]" -CaseSensitive
 }
 function gl {
-	git pull
+	git pull $args
 }
 function glg {
-	git log --stat --color
+	git log --stat --color $args
 }
 function glgg {
-	git log --graph --color
+	git log --graph --color $args
 }
 function glgga {
-	git log --graph --decorate --all
+	git log --graph --decorate --all $args
 }
 function glgm {
-	git log --graph --max-count=10
+	git log --graph --max-count=10 $args
 }
 function glgp {
-	git log --stat --color -p
+	git log --stat --color -p $args
 }
 function glo {
-	git log --oneline --decorate --color
+	git log --oneline --decorate --color $args
 }
 function glog {
-	git log --oneline --decorate --color --graph
+	git log --oneline --decorate --color --graph $args
 }
 function glol {
-	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $args
 }
 function glola {
-	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all $args
 }
 function gm {
-	git merge
+	git merge $args
 }
 function gmom {
-	git merge origin/master
+	git merge origin/master $args
 }
 function gmt {
-	git mergetool --no-prompt
+	git mergetool --no-prompt $args
 }
 function gmtvim {
-	git mergetool --no-prompt --tool=vimdiff
+	git mergetool --no-prompt --tool=vimdiff $args
 }
 function gmum {
-	git merge upstream/master
+	git merge upstream/master $args
 }
 function gp {
-	git push
+	git push $args
 }
 function gpd {
-	git push --dry-run
+	git push --dry-run $args
 }
 function gpoat {
 	git push origin --all
@@ -229,49 +229,49 @@ function gpristine {
 	git clean -dfx
 }
 function gpu {
-	git push upstream
+	git push upstream $args
 }
 function gpv {
-	git push -v
+	git push -v $args
 }
 function gr {
-	git remote
+	git remote $args
 }
 function gra {
-	git remote add
+	git remote add $args
 }
 function grb {
-	git rebase
+	git rebase $args
 }
 function grba {
-	git rebase --abort
+	git rebase --abort $args
 }
 function grbc {
-	git rebase --continue
+	git rebase --continue $args
 }
 function grbi {
-	git rebase -i
+	git rebase -i $args
 }
 function grbm {
-	git rebase master
+	git rebase master $args
 }
 function grbs {
-	git rebase --skip
+	git rebase --skip $args
 }
 function grh {
-	git reset HEAD
+	git reset HEAD $args
 }
 function grhh {
-	git reset HEAD --hard
+	git reset HEAD --hard $args
 }
 function grmv {
-	git remote rename
+	git remote rename $args
 }
 function grrm {
-	git remote remove
+	git remote remove $args
 }
 function grset {
-	git remote set-url
+	git remote set-url $args
 }
 function grt {
 	try {
@@ -283,83 +283,83 @@ function grt {
 	Set-Location $RootPath
 }
 function gru {
-	git reset --
+	git reset -- $args
 }
 function grup {
-	git remote update
+	git remote update $args
 }
 function grv {
-	git remote -v
+	git remote -v $args
 }
 function gsb {
-	git status -sb
+	git status -sb $args
 }
 function gsd {
-	git svn dcommit
+	git svn dcommit $args
 }
 function gsi {
-	git submodule init
+	git submodule init $args
 }
 function gsps {
-	git show --pretty=short --show-signature
+	git show --pretty=short --show-signature $args
 }
 function gsr {
-	git svn rebase
+	git svn rebase $args
 }
 function gss {
-	git status -s
+	git status -s $args
 }
 function gst {
-	git status
+	git status $args
 }
 function gsta {
-	git stash save
+	git stash save $args
 }
 function gstaa {
-	git stash apply
+	git stash apply $args
 }
 function gstd {
-	git stash drop
+	git stash drop $args
 }
 function gstl {
-	git stash list
+	git stash list $args
 }
 function gstp {
-	git stash pop
+	git stash pop $args
 }
 function gstc {
-	git stash clear
+	git stash clear $args
 }
 function gsts {
-	git stash show --text
+	git stash show --text $args
 }
 function gsu {
-	git submodule update
+	git submodule update $args
 }
 function gts {
-	git tag -s
+	git tag -s $args
 }
 function gunignore {
-	git update-index --no-assume-unchanged
+	git update-index --no-assume-unchanged $args
 }
 function gunwip {
 	Write-Output $(git log -n 1 | Select-String "--wip--" -Quiet).Count
 	git reset HEAD~1
 }
 function gup {
-	git pull --rebase
+	git pull --rebase $args
 }
 function gupv {
-	git pull --rebase -v
+	git pull --rebase -v $args
 }
 function glum {
-	git pull upstream master
+	git pull upstream master $args
 }
 function gvt {
-	git verify-tag
+	git verify-tag $args
 }
 function gwch {
-	git whatchanged -p --abbrev-commit --pretty=medium
+	git whatchanged -p --abbrev-commit --pretty=medium $args
 }
 function gwip {
 	git add -A
