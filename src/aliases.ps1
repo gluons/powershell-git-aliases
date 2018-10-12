@@ -156,7 +156,7 @@ function ghh {
 function ggsup {
 	$CurrentBranch = Get-Git-CurrentBranch
 
-	git branch --set-upstream-to = origin/$CurrentBranch
+	git branch --set-upstream-to=origin/$CurrentBranch
 }
 function gpsup {
 	$CurrentBranch = Get-Git-CurrentBranch
