@@ -34,6 +34,9 @@ function gba {
 function gbda {
 	$MergedBranchs = $(git branch --merged | Select-String "^(\*|\s*(master|develop|dev)\s*$)" -NotMatch).Line
 	$MergedBranchs | ForEach-Object {
+		if ([string]::IsNullOrEmpty($_)) {
+			return
+		}
 		git branch -d $_.Trim()
 	}
 }
