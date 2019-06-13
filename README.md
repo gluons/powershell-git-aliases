@@ -3,7 +3,7 @@
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/git-aliases.svg?style=flat-square)](https://www.powershellgallery.com/packages/git-aliases/)
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/git-aliases.svg?style=flat-square)](https://www.powershellgallery.com/packages/git-aliases/)
 
-A [PowerShell](https://microsoft.com/powershell) module that provide partial **[Git](https://git-scm.com/)** aliases from [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)'s [git plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git).
+A [PowerShell](https://microsoft.com/powershell) module that provide partial **[Git](https://git-scm.com/)** aliases from [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)'s [git plugin](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git/).
 
 > ℹ️ This module will replace some built-in PowerShell aliases with our Git aliases to **prevent** [conflict](https://github.com/gluons/powershell-git-aliases/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aconflict).
 
