@@ -113,7 +113,9 @@ $FunctionsToExport = @(
 	'glum',
 	'gvt',
 	'gwch',
-	'gwip'
+	'gwip',
+	'ggl',
+	'ggp'
 )
 
 Export-ModuleMember -Function $FunctionsToExport

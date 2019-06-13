@@ -369,3 +369,13 @@ function gwip {
 	git rm $(git ls-files --deleted) 2> $null
 	git commit --no-verify -m "--wip-- [skip ci]"
 }
+function ggl {
+	$CurrentBranch = Get-Git-CurrentBranch
+
+	git pull origin $CurrentBranch
+}
+function ggp {
+	$CurrentBranch = Get-Git-CurrentBranch
+
+	git push origin $CurrentBranch
+}
