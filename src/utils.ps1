@@ -59,7 +59,13 @@ function Get-Git-Aliases ([string] $Alias) {
 	$magenta = 35
 
 	$Alias = $Alias.Trim()
-	$aliases = Get-Command -Module git-aliases
+	$blacklist = @(
+		'Get-Git-CurrentBranch',
+		'Remove-Alias',
+		'Format-AliasDefinition',
+		'Get-Git-Aliases'
+	)
+	$aliases = Get-Command -Module git-aliases | Where-Object { $_ -notin $blacklist }
 
 	if (-not ([string]::IsNullOrEmpty($Alias))) {
 		$foundAliases = $aliases | Where-Object -Property Name -Value $Alias -EQ
