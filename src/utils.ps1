@@ -1,3 +1,7 @@
+<#
+.SYNOPSIS
+	Get current git branch.
+#>
 function Get-Git-CurrentBranch {
 	git symbolic-ref --quiet HEAD *> $null
 
@@ -37,6 +41,18 @@ function Format-AliasDefinition {
 	return $definitionLines -join "`n"
 }
 
+<#
+.SYNOPSIS
+	Get git aliases' definition.
+.DESCRIPTION
+	Get definition of all git aliases or specific alias.
+.EXAMPLE
+	PS C:\> Get-Git-Aliases
+	Get definition of all git aliases.
+.EXAMPLE
+	PS C:\> Get-Git-Aliases -Alias gst
+	Get definition of `gst` alias.
+#>
 function Get-Git-Aliases ([string] $Alias) {
 	$esc = [char] 27
 	$green = 32
