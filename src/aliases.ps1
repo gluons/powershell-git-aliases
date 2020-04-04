@@ -262,10 +262,10 @@ function grbs {
 	git rebase --skip $args
 }
 function grh {
-	git reset HEAD $args
+	git reset $args
 }
 function grhh {
-	git reset HEAD --hard $args
+	git reset --hard $args
 }
 function grmv {
 	git remote rename $args
@@ -299,6 +299,9 @@ function gsb {
 }
 function gsd {
 	git svn dcommit $args
+}
+function gsh {
+	git show $args
 }
 function gsi {
 	git submodule init $args

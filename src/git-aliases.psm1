@@ -93,6 +93,7 @@ $FunctionsToExport = @(
 	'grv',
 	'gsb',
 	'gsd',
+	'gsh',
 	'gsi',
 	'gsps',
 	'gsr',
