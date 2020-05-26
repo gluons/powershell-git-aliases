@@ -153,6 +153,11 @@ function ggf {
 
 	git push --force origin $CurrentBranch
 }
+function ggfl {
+	$CurrentBranch = Get-Git-CurrentBranch
+
+	git push --force-with-lease origin $CurrentBranch
+}
 function ghh {
 	git help $args
 }
@@ -222,6 +227,12 @@ function gp {
 }
 function gpd {
 	git push --dry-run $args
+}
+function gpf {
+	git push --force-with-lease $args
+}
+function gpf! {
+	git push --force $args
 }
 function gpoat {
 	git push origin --all
