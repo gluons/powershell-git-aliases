@@ -284,6 +284,9 @@ function grmv {
 function grrm {
 	git remote remove $args
 }
+function grs {
+	git restore $args
+}
 function grset {
 	git remote set-url $args
 }
@@ -352,6 +355,9 @@ function gsts {
 }
 function gsu {
 	git submodule update $args
+}
+function gsw {
+	git switch $args
 }
 function gts {
 	git tag -s $args
