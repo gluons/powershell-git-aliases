@@ -32,7 +32,8 @@ function gba {
 	git branch -a $args
 }
 function gbda {
-	$MergedBranchs = $(git branch --merged | Select-String "^(\*|\s*(master|develop|dev)\s*$)" -NotMatch).Line
+	$MainBranch = Get-Git-MainBranch
+	$MergedBranchs = $(git branch --merged | Select-String "^(\*|\s*($MainBranch|develop|dev)\s*$)" -NotMatch).Line
 	$MergedBranchs | ForEach-Object {
 		if ([string]::IsNullOrEmpty($_)) {
 			return
@@ -95,7 +96,9 @@ function gclean {
 	git clean -df $args
 }
 function gcm {
-	git checkout master $args
+	$MainBranch = Get-Git-MainBranch
+
+	git checkout $MainBranch $args
 }
 function gcd {
 	git checkout develop $args
@@ -211,7 +214,9 @@ function gm {
 	git merge $args
 }
 function gmom {
-	git merge origin/master $args
+	$MainBranch = Get-Git-MainBranch
+
+	git merge origin/$MainBranch $args
 }
 function gmt {
 	git mergetool --no-prompt $args
@@ -220,7 +225,9 @@ function gmtvim {
 	git mergetool --no-prompt --tool=vimdiff $args
 }
 function gmum {
-	git merge upstream/master $args
+	$MainBranch = Get-Git-MainBranch
+
+	git merge upstream/$MainBranch $args
 }
 function gp {
 	git push $args
@@ -267,7 +274,9 @@ function grbi {
 	git rebase -i $args
 }
 function grbm {
-	git rebase master $args
+	$MainBranch = Get-Git-MainBranch
+
+	git rebase $MainBranch $args
 }
 function grbs {
 	git rebase --skip $args
@@ -376,7 +385,9 @@ function gupv {
 	git pull --rebase -v $args
 }
 function glum {
-	git pull upstream master $args
+	$MainBranch = Get-Git-MainBranch
+
+	git pull upstream $MainBranch $args
 }
 function gvt {
 	git verify-tag $args

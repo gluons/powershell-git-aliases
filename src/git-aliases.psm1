@@ -3,6 +3,7 @@
 $FunctionsToExport = @(
 	'Get-Git-CurrentBranch',
 	'Get-Git-Aliases',
+	'Get-Git-MainBranch',
 	'g',
 	'ga',
 	'gaa',
