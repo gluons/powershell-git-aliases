@@ -26,6 +26,7 @@ $FunctionsToExport = @(
 	'gcam',
 	'gca!',
 	'gcan!',
+	'gcans!',
 	'gcb',
 	'gcf',
 	'gcl',
