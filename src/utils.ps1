@@ -15,7 +15,7 @@ function Get-Git-CurrentBranch {
 function Get-Git-MainBranch {
 	git rev-parse --git-dir *> $null
 
-	if (-not $?) {
+	if ($LASTEXITCODE -ne 0) {
 		return
 	}
 
@@ -24,7 +24,7 @@ function Get-Git-MainBranch {
 	foreach ($branch in $branches) {
 		& git show-ref -q --verify refs/heads/$branch
 
-		if ($?) {
+		if ($LASTEXITCODE -eq 0) {
 			return $branch
 		}
 	}
