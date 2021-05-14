@@ -71,6 +71,9 @@ function gc {
 function gc! {
 	git commit -v --amend $args
 }
+function gcn! {
+	git commit -v --no-edit --amend $args
+}
 function gca {
 	git commit -v -a $args
 }
