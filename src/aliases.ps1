@@ -1,14 +1,14 @@
 . $PSScriptRoot\utils.ps1
 
 # Prevent conflict with built-in aliases
-Remove-Alias gc -Force
-Remove-Alias gcb -Force
-Remove-Alias gcm -Force
-Remove-Alias gcs -Force
-Remove-Alias gl -Force
-Remove-Alias gm -Force
-Remove-Alias gp -Force
-Remove-Alias gpv -Force
+Remove-Alias gc -Force -ErrorAction SilentlyContinue
+Remove-Alias gcb -Force -ErrorAction SilentlyContinue
+Remove-Alias gcm -Force -ErrorAction SilentlyContinue
+Remove-Alias gcs -Force -ErrorAction SilentlyContinue
+Remove-Alias gl -Force -ErrorAction SilentlyContinue
+Remove-Alias gm -Force -ErrorAction SilentlyContinue
+Remove-Alias gp -Force -ErrorAction SilentlyContinue
+Remove-Alias gpv -Force -ErrorAction SilentlyContinue
 
 function g {
 	git $args
