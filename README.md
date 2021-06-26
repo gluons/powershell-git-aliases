@@ -9,7 +9,7 @@ A [PowerShell](https://microsoft.com/powershell) module that provide partial **[
 
 ## ⚙️ Installation
 
-Install from [PowerShell Gallery](https://www.powershellgallery.com/)
+Install from [PowerShell Gallery](https://www.powershellgallery.com/packages/git-aliases)
 
 ```powershell
 Install-Module git-aliases -Scope CurrentUser -AllowClobber
