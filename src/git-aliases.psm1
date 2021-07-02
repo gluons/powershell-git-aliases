@@ -65,6 +65,7 @@ $FunctionsToExport = @(
 	'glgp',
 	'glo',
 	'glog',
+	'gloga',
 	'glol',
 	'glola',
 	'gm',
