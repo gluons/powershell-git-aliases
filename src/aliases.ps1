@@ -210,6 +210,9 @@ function glo {
 function glog {
 	git log --oneline --decorate --color --graph $args
 }
+function gloga {
+	git log --oneline --decorate --color --graph --all $args
+}
 function glol {
 	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit $args
 }
