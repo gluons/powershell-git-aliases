@@ -15,6 +15,13 @@ Install from [PowerShell Gallery](https://www.powershellgallery.com/packages/git
 Install-Module git-aliases -Scope CurrentUser -AllowClobber
 ```
 
+Or from [Scoop](https://github.com/ScoopInstaller/Extras/blob/master/bucket/git-aliases.json)
+
+```powershell
+scoop bucket add extras
+scoop install git-aliases
+```
+
 ---
 
 ⚠️ If you haven't allowed script execution policy, set your script execution policy to `RemoteSigned` or `Unrestricted`.
