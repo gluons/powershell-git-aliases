@@ -31,6 +31,9 @@ function gb {
 function gba {
 	git branch -a $args
 }
+function gbd {
+	git branch -d $args
+}
 function gbda {
 	$MainBranch = Get-Git-MainBranch
 	$MergedBranchs = $(git branch --merged | Select-String "^(\*|\s*($MainBranch|develop|dev)\s*$)" -NotMatch).Line
