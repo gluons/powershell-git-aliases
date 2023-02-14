@@ -390,6 +390,9 @@ function gunwip {
 function gup {
 	git pull --rebase $args
 }
+function gupa {
+	git pull --rebase --autostash $args
+}
 function gupv {
 	git pull --rebase -v $args
 }
