@@ -126,7 +126,8 @@ $FunctionsToExport = @(
 	'gwch',
 	'gwip',
 	'ggl',
-	'ggp'
+	'ggp',
+	'gprom'
 )
 
 Export-ModuleMember -Function $FunctionsToExport

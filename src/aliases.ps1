@@ -419,3 +419,8 @@ function ggp {
 
 	git push origin $CurrentBranch
 }
+function gprom {
+	$MainBranch = Get-Git-MainBranch
+
+	git pull --rebase origin $MainBranch
+}
