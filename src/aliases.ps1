@@ -422,3 +422,6 @@ function ggp {
 
 	git push origin $CurrentBranch
 }
+function ggpnp {
+	ggl; ggp $args
+}

@@ -11,6 +11,7 @@ $FunctionsToExport = @(
 	'gau',
 	'gb',
 	'gba',
+	'gbd',
 	'gbda',
 	'gbl',
 	'gbnm',
@@ -126,7 +127,8 @@ $FunctionsToExport = @(
 	'gwch',
 	'gwip',
 	'ggl',
-	'ggp'
+	'ggp',
+	'ggpnp'
 )
 
 Export-ModuleMember -Function $FunctionsToExport
