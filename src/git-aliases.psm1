@@ -11,6 +11,7 @@ $FunctionsToExport = @(
 	'gau',
 	'gb',
 	'gba',
+	'gbd',
 	'gbda',
 	'gbl',
 	'gbnm',
@@ -127,6 +128,7 @@ $FunctionsToExport = @(
 	'gwip',
 	'ggl',
 	'ggp',
+  'ggpnp',
 	'gprom'
 )
 

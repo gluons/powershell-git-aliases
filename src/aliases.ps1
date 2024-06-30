@@ -31,6 +31,9 @@ function gb {
 function gba {
 	git branch -a $args
 }
+function gbd {
+	git branch -d $args
+}
 function gbda {
 	$MainBranch = Get-Git-MainBranch
 	$MergedBranchs = $(git branch --merged | Select-String "^(\*|\s*($MainBranch|develop|dev)\s*$)" -NotMatch).Line
@@ -418,6 +421,9 @@ function ggp {
 	$CurrentBranch = Get-Git-CurrentBranch
 
 	git push origin $CurrentBranch
+}
+function ggpnp {
+	ggl; ggp $args
 }
 function gprom {
 	$MainBranch = Get-Git-MainBranch
