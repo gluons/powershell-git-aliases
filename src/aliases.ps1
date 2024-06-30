@@ -308,6 +308,9 @@ function grrm {
 function grs {
 	git restore $args
 }
+function grst {
+	git restore --staged $args
+}
 function grset {
 	git remote set-url $args
 }
