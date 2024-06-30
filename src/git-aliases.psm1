@@ -130,7 +130,7 @@ $FunctionsToExport = @(
 	'gwip',
 	'ggl',
 	'ggp',
-  'ggpnp',
+	'ggpnp',
 	'gprom'
 )
 
