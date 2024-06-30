@@ -434,5 +434,5 @@ function ggpnp {
 function gprom {
 	$MainBranch = Get-Git-MainBranch
 
-	git pull --rebase origin $MainBranch
+	git pull --rebase origin $MainBranch $args
 }
