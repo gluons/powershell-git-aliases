@@ -128,7 +128,8 @@ $FunctionsToExport = @(
 	'gwip',
 	'ggl',
 	'ggp',
-	'ggpnp'
+  'ggpnp',
+	'gprom'
 )
 
 Export-ModuleMember -Function $FunctionsToExport
