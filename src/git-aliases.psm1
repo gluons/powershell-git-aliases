@@ -121,6 +121,7 @@ $FunctionsToExport = @(
 	'gunignore',
 	'gunwip',
 	'gup',
+	'gupa',
 	'gupv',
 	'glum',
 	'gvt',
