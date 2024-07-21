@@ -133,3 +133,26 @@ function Get-Git-Aliases ([string] $Alias) {
 
 	return Format-Table -InputObject $aliases -AutoSize -Wrap -Property $cols
 }
+
+<#
+.SYNOPSIS
+	Print deprecated message.
+.DESCRIPTION
+	Print a colored message telling that a specific alias ($previous)
+	is deprecated, suggesting the use of another alias ($next).
+.EXAMPLE
+	PS C:\> Write-Host-Deprecated "gup" "gpr"
+	[git-aliases] gup is a deprecated alias, use "gpr" instead.
+#>
+function Write-Host-Deprecated {
+	param (
+		[Parameter(Mandatory = $true)][string] $previous,
+        [Parameter(Mandatory = $true)][string] $next
+	)
+
+    Write-Host "[git-aliases] " -ForegroundColor Yellow -NoNewLine
+    Write-Host "${previous}" -ForegroundColor Red -NoNewLine
+    Write-Host " is a deprecated alias, use " -ForegroundColor Yellow -NoNewLine
+    Write-Host """${next}""" -ForegroundColor Green -NoNewLine
+    Write-Host " instead.`n" -ForegroundColor Yellow
+}
