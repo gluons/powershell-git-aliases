@@ -136,6 +136,9 @@ function gcs {
 function gd {
 	git diff $args
 }
+function gds {
+	git diff --staged $args
+}
 function gdca {
 	git diff --cached $args
 }
@@ -301,6 +304,11 @@ function grhh {
 }
 function grmv {
 	git remote rename $args
+}
+function groh {
+	$CurrentBranch = Get-Git-CurrentBranch
+
+	git reset origin/$CurrentBranch --hard
 }
 function grrm {
 	git remote remove $args
