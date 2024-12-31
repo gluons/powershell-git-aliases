@@ -260,9 +260,18 @@ function gpoat {
 	git push origin --all
 	git push origin --tags
 }
+function gpr {
+	git pull --rebase $args
+}
+function gpra {
+	git pull --rebase --autostash $args
+}
 function gpristine {
 	git reset --hard
 	git clean -dfx
+}
+function gprv {
+	git pull --rebase -v $args
 }
 function gpu {
 	git push upstream $args
@@ -402,12 +411,15 @@ function gunwip {
 	git reset HEAD~1
 }
 function gup {
+	Write-Host-Deprecated "gup" "gpr"
 	git pull --rebase $args
 }
 function gupa {
+	Write-Host-Deprecated "gupa" "gpra"
 	git pull --rebase --autostash $args
 }
 function gupv {
+	Write-Host-Deprecated "gupv" "gprv"
 	git pull --rebase -v $args
 }
 function glum {
