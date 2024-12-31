@@ -31,6 +31,9 @@ function gb {
 function gba {
 	git branch -a $args
 }
+function gbd {
+	git branch -d $args
+}
 function gbda {
 	$MainBranch = Get-Git-MainBranch
 	$MergedBranchs = $(git branch --merged | Select-String "^(\*|\s*($MainBranch|develop|dev)\s*$)" -NotMatch).Line
@@ -132,6 +135,9 @@ function gcs {
 }
 function gd {
 	git diff $args
+}
+function gds {
+	git diff --staged $args
 }
 function gdca {
 	git diff --cached $args
@@ -254,9 +260,18 @@ function gpoat {
 	git push origin --all
 	git push origin --tags
 }
+function gpr {
+	git pull --rebase $args
+}
+function gpra {
+	git pull --rebase --autostash $args
+}
 function gpristine {
 	git reset --hard
 	git clean -dfx
+}
+function gprv {
+	git pull --rebase -v $args
 }
 function gpu {
 	git push upstream $args
@@ -299,11 +314,19 @@ function grhh {
 function grmv {
 	git remote rename $args
 }
+function groh {
+	$CurrentBranch = Get-Git-CurrentBranch
+
+	git reset origin/$CurrentBranch --hard
+}
 function grrm {
 	git remote remove $args
 }
 function grs {
 	git restore $args
+}
+function grst {
+	git restore --staged $args
 }
 function grset {
 	git remote set-url $args
@@ -388,9 +411,15 @@ function gunwip {
 	git reset HEAD~1
 }
 function gup {
+	Write-Host-Deprecated "gup" "gpr"
 	git pull --rebase $args
 }
+function gupa {
+	Write-Host-Deprecated "gupa" "gpra"
+	git pull --rebase --autostash $args
+}
 function gupv {
+	Write-Host-Deprecated "gupv" "gprv"
 	git pull --rebase -v $args
 }
 function glum {
@@ -418,4 +447,12 @@ function ggp {
 	$CurrentBranch = Get-Git-CurrentBranch
 
 	git push origin $CurrentBranch
+}
+function ggpnp {
+	ggl; ggp $args
+}
+function gprom {
+	$MainBranch = Get-Git-MainBranch
+
+	git pull --rebase origin $MainBranch $args
 }
