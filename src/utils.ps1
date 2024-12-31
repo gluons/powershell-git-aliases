@@ -147,12 +147,12 @@ function Get-Git-Aliases ([string] $Alias) {
 function Write-Host-Deprecated {
 	param (
 		[Parameter(Mandatory = $true)][string] $previous,
-        [Parameter(Mandatory = $true)][string] $next
+		[Parameter(Mandatory = $true)][string] $next
 	)
 
-    Write-Host "[git-aliases] " -ForegroundColor Yellow -NoNewLine
-    Write-Host "${previous}" -ForegroundColor Red -NoNewLine
-    Write-Host " is a deprecated alias, use " -ForegroundColor Yellow -NoNewLine
-    Write-Host """${next}""" -ForegroundColor Green -NoNewLine
-    Write-Host " instead.`n" -ForegroundColor Yellow
+	Write-Host "[git-aliases] " -ForegroundColor Yellow -NoNewLine
+	Write-Host "${previous}" -ForegroundColor Red -NoNewLine
+	Write-Host " is a deprecated alias, use " -ForegroundColor Yellow -NoNewLine
+	Write-Host """${next}""" -ForegroundColor Green -NoNewLine
+	Write-Host " instead.`n" -ForegroundColor Yellow
 }
