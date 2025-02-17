@@ -126,3 +126,8 @@
 | `gvt`  | `git verify-tag $args` |
 | `gwch` | `git whatchanged -p --abbrev-commit --pretty=medium $args` |
 | `gwip` | Script to create a WIP commit. |
+| `gwt`  | `git worktree $args` |
+| `gwta` | `git worktree add $args` |
+| `gwtls`| `git worktree list $args` |
+| `gwtmv`| `git worktree move $args` |
+| `gwtrm`| `git worktree remove $args` |
