@@ -400,6 +400,9 @@ function gsu {
 function gsw {
 	git switch $args
 }
+function gswc {
+	git switch --create $args
+}
 function gts {
 	git tag -s $args
 }

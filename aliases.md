@@ -118,6 +118,7 @@
 | `gsts` | `git stash show --text $args` |
 | `gsu`  | `git submodule update $args` |
 | `gsw`  | `git switch $args` |
+| `gswc` | `git switch --create $args` |
 | `gts`  | `git tag -s $args` |
 | `gunignore`| `git update-index --no-assume-unchanged $args` |
 | `gunwip`| Script to remove a WIP commit. |
