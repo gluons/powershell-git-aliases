@@ -400,6 +400,14 @@ function gsu {
 function gsw {
 	git switch $args
 }
+function gswm {
+	$MainBranch = Get-Git-MainBranch
+	git switch $MainBranch $args
+}
+function gswm {
+	$DevelopBranch = Get-Git-DevelopBranch
+	git switch $DevelopBranch $args
+}
 function gts {
 	git tag -s $args
 }
