@@ -118,6 +118,8 @@
 | `gsts` | `git stash show --text $args` |
 | `gsu`  | `git submodule update $args` |
 | `gsw`  | `git switch $args` |
+| `gswm` | Script to switch to main branch. |
+| `gswd` | Script to switch to develop branch. |
 | `gts`  | `git tag -s $args` |
 | `gunignore`| `git update-index --no-assume-unchanged $args` |
 | `gunwip`| Script to remove a WIP commit. |
