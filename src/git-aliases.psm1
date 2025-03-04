@@ -137,7 +137,12 @@ $FunctionsToExport = @(
 	'ggl',
 	'ggp',
 	'ggpnp',
-	'gprom'
+	'gprom',
+	'gwt',
+	'gwta',
+	'gwtls',
+	'gwtmv',
+	'gwtrm'
 )
 
 Export-ModuleMember -Function $FunctionsToExport
