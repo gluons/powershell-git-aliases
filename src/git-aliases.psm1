@@ -123,6 +123,8 @@ $FunctionsToExport = @(
 	'gsts',
 	'gsu',
 	'gsw',
+	'gswm',
+	'gswd',
 	'gts',
 	'gunignore',
 	'gunwip',
