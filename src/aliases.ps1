@@ -349,6 +349,9 @@ function grup {
 function grv {
 	git remote -v $args
 }
+function grev {
+	git revert $args
+}
 function gsb {
 	git status -sb $args
 }
