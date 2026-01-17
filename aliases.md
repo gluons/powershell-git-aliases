@@ -101,6 +101,7 @@
 | `gru`  | `git reset -- $args` |
 | `grup` | `git remote update $args` |
 | `grv`  | `git remote -v $args` |
+| `grev` | `git revert $args` |
 | `gsb`  | `git status -sb $args` |
 | `gsd`  | `git svn dcommit $args` |
 | `gsh`  | `git show $args` |
