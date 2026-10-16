@@ -1,6 +1,6 @@
 # AGENTS.md
 
-`git-aliases` — a PowerShell module porting Git aliases from [Oh My Zsh's git plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git). Published to PowerShell Gallery. No build system, no tests, no CI.
+`git-aliases` — a PowerShell module porting Git aliases from [Oh My Zsh's git plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git). Published to PowerShell Gallery. No build system, no CI.
 
 ## Layout
 
@@ -11,23 +11,26 @@
 | `src/aliases.ps1` | One `function <alias> { git ... $args }` per Git alias. |
 | `src/utils.ps1` | Helpers: `Get-Git-CurrentBranch`, `Get-Git-MainBranch`, `Get-Git-Aliases`, `Write-Host-Deprecated`, `Remove-Alias` shim. |
 | `aliases.md` | Documentation table of all aliases. Keep in sync with code. |
+| `tests/` | Pester unit tests (`*.Tests.ps1`). No build system needed — run with `Invoke-Pester`. See the test files for what they cover. |
 
 ## Verify changes
 
-Import the module locally from the repo root, then inspect aliases:
+Run the unit tests, then import the module locally from the repo root and inspect aliases:
 
 ```powershell
+pwsh -NoProfile -Command "Invoke-Pester tests -Output Minimal"
 Import-Module ./src/git-aliases.psd1 -Force -DisableNameChecking
 Get-Git-Aliases gst   # print one alias' definition; omit arg for all
 ```
 
-## Adding or changing an alias — 3 required edits
+## Adding or changing an alias — 4 required edits
 
 Upstream source of truth for alias definitions: [`git.plugin.zsh`](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh) in the Oh My Zsh git plugin.
 
 1. Define/update the function in `src/aliases.ps1`.
 2. Add the exact name to `$FunctionsToExport` in `src/git-aliases.psm1` — an alias is invisible until exported here.
 3. Update the row in `aliases.md`.
+4. Update the expected arguments in `tests/Aliases.Tests.ps1` (data-driven `$cases` tables). Export-consistency tests need no update — they catch a forgotten step 2 automatically.
 
 ## Conventions & pitfalls
 
