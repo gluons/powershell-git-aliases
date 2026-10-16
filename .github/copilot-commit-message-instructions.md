@@ -95,7 +95,7 @@ Updated stuff.
 
 ## Additional Guidelines
 
-- Choose the most appropriate emoji from the Gitmoji guide
+- Choose the most appropriate emoji from the Gitmoji guide. Use the full list from `https://github.com/carloscuesta/gitmoji/blob/master/packages/gitmojis/src/gitmojis.json` as the authoritative source of available emoji choices.
 - When in doubt between multiple emojis, pick the one that best represents the primary purpose
 - For dependency updates, use ⬆️ for upgrades, ⬇️ for downgrades, 📌 for pinning
 - For breaking changes, consider using 💥 or mention "BREAKING CHANGE:" in the footer
