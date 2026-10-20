@@ -406,6 +406,14 @@ function gsw {
 function gswc {
 	git switch --create $args
 }
+function gswm {
+	$MainBranch = Get-Git-MainBranch
+	git switch $MainBranch $args
+}
+function gswd {
+	$DevelopBranch = Get-Git-DevelopBranch
+	git switch $DevelopBranch $args
+}
 function gts {
 	git tag -s $args
 }

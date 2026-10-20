@@ -125,6 +125,8 @@ $FunctionsToExport = @(
 	'gsu',
 	'gsw',
 	'gswc',
+	'gswm',
+	'gswd',
 	'gts',
 	'gunignore',
 	'gunwip',
