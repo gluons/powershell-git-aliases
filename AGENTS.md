@@ -1,6 +1,6 @@
 # AGENTS.md
 
-`git-aliases` — a PowerShell module porting Git aliases from [Oh My Zsh's git plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git). Published to PowerShell Gallery. No build system, no CI.
+`git-aliases` — a PowerShell module porting Git aliases from [Oh My Zsh's git plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git). Published to PowerShell Gallery. No build system; publishing is automated via GitHub Actions.
 
 ## Layout
 
@@ -12,6 +12,7 @@
 | `src/utils.ps1` | Helpers: `Get-Git-CurrentBranch`, `Get-Git-MainBranch`, `Get-Git-Aliases`, `Write-Host-Deprecated`, `Remove-Alias` shim. |
 | `aliases.md` | Documentation table of all aliases. Keep in sync with code. |
 | `tests/` | Pester unit tests (`*.Tests.ps1`). No build system needed — run with `Invoke-Pester`. See the test files for what they cover. |
+| `.github/workflows/publish.yml` | Publishes the module to the PowerShell Gallery via manual `workflow_dispatch` only. Runs tests first, then verifies the version isn't already published. |
 
 ## Verify changes
 
@@ -31,6 +32,18 @@ Upstream source of truth for alias definitions: [`git.plugin.zsh`](https://githu
 2. Add the exact name to `$FunctionsToExport` in `src/git-aliases.psm1` — an alias is invisible until exported here.
 3. Update the row in `aliases.md`.
 4. Update the expected arguments in `tests/Aliases.Tests.ps1` (data-driven `$cases` tables). Export-consistency tests need no update — they catch a forgotten step 2 automatically.
+
+## Releasing / publishing to the PowerShell Gallery
+
+Publishing is manual only — trigger the **Publish to PowerShell Gallery** workflow from the GitHub Actions tab (Run workflow). There is no automatic publish. The workflow:
+
+1. Runs the Pester unit tests.
+2. Verifies the `ModuleVersion` in `src/git-aliases.psd1` isn't already published to the Gallery (so bump the version before running).
+3. Publishes `src/` with `Publish-Module` using the `PSGALLERY_API_KEY` repository secret.
+
+No git tags are involved. Release flow: bump `ModuleVersion`, commit, push, then run the workflow manually.
+
+The `PSGALLERY_API_KEY` secret must be set in the repository settings (an API key from powershellgallery.com with publish rights to the module).
 
 ## Conventions & pitfalls
 

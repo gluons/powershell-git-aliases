@@ -1,0 +1,42 @@
+name: Publish to PowerShell Gallery
+
+on:
+  workflow_dispatch:
+
+env:
+  PSGALLERY_MODULE_NAME: git-aliases
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Pester
+        shell: pwsh
+        run: |
+          Install-Module Pester -MinimumVersion 5.0 -Scope CurrentUser -Force -AllowClobber
+
+      - name: Run unit tests
+        shell: pwsh
+        run: |
+          Invoke-Pester ./tests -Output Minimal -CI
+
+      - name: Check version not already published
+        shell: pwsh
+        run: |
+          $manifestVersion = (Import-PowerShellDataFile ./src/git-aliases.psd1).ModuleVersion
+          $published = Find-PSResource -Name $env:PSGALLERY_MODULE_NAME -ErrorAction SilentlyContinue |
+            Where-Object { $_.Version -eq $manifestVersion }
+          if ($published) {
+            throw "Version $manifestVersion is already published to the PowerShell Gallery."
+          }
+
+      - name: Publish module
+        shell: pwsh
+        env:
+          PSGALLERY_API_KEY: ${{ secrets.PSGALLERY_API_KEY }}
+        run: |
+          Publish-Module -Path ./src -NuGetApiKey $env:PSGALLERY_API_KEY -Force
+          Write-Host "Published git-aliases to the PowerShell Gallery."
