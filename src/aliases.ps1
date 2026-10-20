@@ -349,6 +349,9 @@ function grup {
 function grv {
 	git remote -v $args
 }
+function grev {
+	git revert $args
+}
 function gsb {
 	git status -sb $args
 }
@@ -400,11 +403,14 @@ function gsu {
 function gsw {
 	git switch $args
 }
+function gswc {
+	git switch --create $args
+}
 function gswm {
 	$MainBranch = Get-Git-MainBranch
 	git switch $MainBranch $args
 }
-function gswm {
+function gswd {
 	$DevelopBranch = Get-Git-DevelopBranch
 	git switch $DevelopBranch $args
 }
@@ -463,4 +469,19 @@ function gprom {
 	$MainBranch = Get-Git-MainBranch
 
 	git pull --rebase origin $MainBranch $args
+}
+function gwt {
+	git worktree $args
+}
+function gwta {
+	git worktree add $args
+}
+function gwtls {
+	git worktree list $args
+}
+function gwtmv {
+	git worktree move $args
+}
+function gwtrm {
+	git worktree remove $args
 }

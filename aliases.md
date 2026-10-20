@@ -101,6 +101,7 @@
 | `gru`  | `git reset -- $args` |
 | `grup` | `git remote update $args` |
 | `grv`  | `git remote -v $args` |
+| `grev` | `git revert $args` |
 | `gsb`  | `git status -sb $args` |
 | `gsd`  | `git svn dcommit $args` |
 | `gsh`  | `git show $args` |
@@ -118,6 +119,7 @@
 | `gsts` | `git stash show --text $args` |
 | `gsu`  | `git submodule update $args` |
 | `gsw`  | `git switch $args` |
+| `gswc` | `git switch --create $args` |
 | `gswm` | Script to switch to main branch. |
 | `gswd` | Script to switch to develop branch. |
 | `gts`  | `git tag -s $args` |
@@ -128,3 +130,8 @@
 | `gvt`  | `git verify-tag $args` |
 | `gwch` | `git whatchanged -p --abbrev-commit --pretty=medium $args` |
 | `gwip` | Script to create a WIP commit. |
+| `gwt`  | `git worktree $args` |
+| `gwta` | `git worktree add $args` |
+| `gwtls`| `git worktree list $args` |
+| `gwtmv`| `git worktree move $args` |
+| `gwtrm`| `git worktree remove $args` |

@@ -106,6 +106,7 @@ $FunctionsToExport = @(
 	'gru',
 	'grup',
 	'grv',
+	'grev',
 	'gsb',
 	'gsd',
 	'gsh',
@@ -123,6 +124,7 @@ $FunctionsToExport = @(
 	'gsts',
 	'gsu',
 	'gsw',
+	'gswc',
 	'gswm',
 	'gswd',
 	'gts',
@@ -138,7 +140,12 @@ $FunctionsToExport = @(
 	'ggl',
 	'ggp',
 	'ggpnp',
-	'gprom'
+	'gprom',
+	'gwt',
+	'gwta',
+	'gwtls',
+	'gwtmv',
+	'gwtrm'
 )
 
 Export-ModuleMember -Function $FunctionsToExport

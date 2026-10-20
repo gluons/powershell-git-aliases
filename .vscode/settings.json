@@ -1,0 +1,10 @@
+{
+	"[powershell]": {
+		"editor.defaultFormatter": "ms-vscode.powershell"
+	},
+	"github.copilot.chat.commitMessageGeneration.instructions": [
+		{
+			"file": ".github/copilot-commit-message-instructions.md"
+		}
+	]
+}
