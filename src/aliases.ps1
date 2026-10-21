@@ -233,10 +233,10 @@ function gmom {
 
 	git merge origin/$MainBranch $args
 }
-function gmt {
+function gmtl {
 	git mergetool --no-prompt $args
 }
-function gmtvim {
+function gmtlvim {
 	git mergetool --no-prompt --tool=vimdiff $args
 }
 function gmum {

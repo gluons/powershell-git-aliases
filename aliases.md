@@ -71,8 +71,8 @@
 | `glum` | Script to pull upstream changes for the main branch. |
 | `gm`   | `git merge $args` |
 | `gmom` | Script to merge origin/main branch. |
-| `gmt`  | `git mergetool --no-prompt $args` |
-| `gmtvim`| `git mergetool --no-prompt --tool=vimdiff $args` |
+| `gmtl` | `git mergetool --no-prompt $args` |
+| `gmtlvim`| `git mergetool --no-prompt --tool=vimdiff $args` |
 | `gmum` | Script to merge upstream/main branch. |
 | `gp`   | `git push $args` |
 | `gpd`  | `git push --dry-run $args` |

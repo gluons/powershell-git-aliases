@@ -133,8 +133,8 @@ Describe 'Alias functions' {
 			@{ Alias = 'glol'; Expected = @('log', '--graph', '--pretty=format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset', '--abbrev-commit') }
 			@{ Alias = 'glola'; Expected = @('log', '--graph', '--pretty=format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset', '--abbrev-commit', '--all') }
 			@{ Alias = 'gm'; Expected = @('merge'); Extra = @('other-branch') }
-			@{ Alias = 'gmt'; Expected = @('mergetool', '--no-prompt') }
-			@{ Alias = 'gmtvim'; Expected = @('mergetool', '--no-prompt', '--tool=vimdiff') }
+			@{ Alias = 'gmtl'; Expected = @('mergetool', '--no-prompt') }
+			@{ Alias = 'gmtlvim'; Expected = @('mergetool', '--no-prompt', '--tool=vimdiff') }
 			@{ Alias = 'gp'; Expected = @('push'); Extra = @('--tags') }
 			@{ Alias = 'gpd'; Expected = @('push', '--dry-run') }
 			@{ Alias = 'gpf'; Expected = @('push', '--force-with-lease') }
