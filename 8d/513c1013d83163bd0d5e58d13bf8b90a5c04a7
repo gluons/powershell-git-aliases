@@ -1,0 +1,19 @@
+.github/workflows/publish.yml
+  s_c7438075f29496::t_246bf7faa36fac 41-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.3",
+  "base_commit_sha": "8d513c1013d83163bd0d5e58d13bf8b90a5c04a7",
+  "prompts": {},
+  "sessions": {
+    "s_c7438075f29496": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "f7445a2a-0185-4211-b876-56ef7d7872a1",
+        "model": "opencodego/OpenCode Go/opencodego:glm-5.3-flash::session-2026-05-21-b"
+      },
+      "human_author": "Saran Tanpituckpong <sarunta@gmail.com>"
+    }
+  }
+}
