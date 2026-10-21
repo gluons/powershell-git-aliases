@@ -38,5 +38,11 @@ jobs:
         env:
           PSGALLERY_API_KEY: ${{ secrets.PSGALLERY_API_KEY }}
         run: |
-          Publish-Module -Path ./src -NuGetApiKey $env:PSGALLERY_API_KEY -Force
+          # PowerShellGet 2.x derives the module name from the leaf folder name
+          # when using -Path, so the module must be staged in a folder named
+          # after the module (git-aliases), not "src".
+          $stagingPath = Join-Path $env:RUNNER_TEMP 'git-aliases'
+          New-Item -ItemType Directory -Path $stagingPath -Force | Out-Null
+          Copy-Item ./src/* -Destination $stagingPath -Recurse -Force
+          Publish-Module -Path $stagingPath -NuGetApiKey $env:PSGALLERY_API_KEY -Force
           Write-Host "Published git-aliases to the PowerShell Gallery."
