@@ -155,6 +155,8 @@ Describe 'Alias functions' {
 			@{ Alias = 'grbs'; Expected = @('rebase', '--skip') }
 			@{ Alias = 'grh'; Expected = @('reset') }
 			@{ Alias = 'grhh'; Expected = @('reset', '--hard') }
+			@{ Alias = 'grm'; Expected = @('rm') }
+			@{ Alias = 'grmc'; Expected = @('rm', '--cached') }
 			@{ Alias = 'grmv'; Expected = @('remote', 'rename') }
 			@{ Alias = 'grrm'; Expected = @('remote', 'remove') }
 			@{ Alias = 'grs'; Expected = @('restore') }

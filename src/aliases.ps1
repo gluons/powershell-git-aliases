@@ -311,6 +311,12 @@ function grh {
 function grhh {
 	git reset --hard $args
 }
+function grm {
+	git rm $args
+}
+function grmc {
+	git rm --cached $args
+}
 function grmv {
 	git remote rename $args
 }

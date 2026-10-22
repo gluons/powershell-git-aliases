@@ -93,6 +93,8 @@
 | `grbs` | `git rebase --skip $args` |
 | `grh`  | `git reset $args` |
 | `grhh` | `git reset --hard $args` |
+| `grm`  | `git rm $args` |
+| `grmc` | `git rm --cached $args` |
 | `grmv` | `git remote rename $args` |
 | `grrm` | `git remote remove $args` |
 | `grs`  | `git restore $args` |

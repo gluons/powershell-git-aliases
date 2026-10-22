@@ -96,6 +96,8 @@ $FunctionsToExport = @(
 	'grbs',
 	'grh',
 	'grhh',
+	'grm',
+	'grmc',
 	'grmv',
 	'groh',
 	'grrm',
