@@ -55,6 +55,7 @@ Describe 'Alias functions' {
 
 		Mock Get-Git-MainBranch -ModuleName git-aliases { $script:MainBranch }
 		Mock Get-Git-CurrentBranch -ModuleName git-aliases { $script:CurrentBranch }
+		Mock Get-Git-DevelopBranch -ModuleName git-aliases { $script:DevelopBranch }
 	}
 
 	BeforeEach {
@@ -63,6 +64,7 @@ Describe 'Alias functions' {
 		$script:GitOutputFor = $null
 		$script:MainBranch = 'main'
 		$script:CurrentBranch = 'feature-x'
+		$script:DevelopBranch = 'develop'
 	}
 
 	AfterAll {
@@ -160,6 +162,7 @@ Describe 'Alias functions' {
 			@{ Alias = 'grset'; Expected = @('remote', 'set-url') }
 			@{ Alias = 'grup'; Expected = @('remote', 'update') }
 			@{ Alias = 'grv'; Expected = @('remote', '-v') }
+			@{ Alias = 'grev'; Expected = @('revert'); Extra = @('HEAD~1') }
 			@{ Alias = 'gsb'; Expected = @('status', '-sb') }
 			@{ Alias = 'gsd'; Expected = @('svn', 'dcommit') }
 			@{ Alias = 'gsh'; Expected = @('show'); Extra = @('HEAD') }
@@ -203,6 +206,8 @@ Describe 'Alias functions' {
 		$cases = @(
 			@{ Alias = 'gcm'; Branch = 'main'; Expected = @('checkout', 'main') }
 			@{ Alias = 'gcm'; Branch = 'trunk'; Expected = @('checkout', 'trunk') }
+			@{ Alias = 'gswm'; Branch = 'main'; Expected = @('switch', 'main') }
+			@{ Alias = 'gswm'; Branch = 'trunk'; Expected = @('switch', 'trunk') }
 			@{ Alias = 'gmom'; Branch = 'main'; Expected = @('merge', 'origin/main') }
 			@{ Alias = 'gmom'; Branch = 'trunk'; Expected = @('merge', 'origin/trunk') }
 			@{ Alias = 'gmum'; Branch = 'main'; Expected = @('merge', 'upstream/main') }
@@ -223,6 +228,23 @@ Describe 'Alias functions' {
 
 			$script:GitCalls | Should -HaveCount 1
 			$script:GitCalls[0] | Should -BeExactly (@($Expected) + @($Extra))
+		}
+	}
+
+	Context 'Aliases driven by the develop branch' {
+		$cases = @(
+			@{ Alias = 'gswd'; Branch = 'develop'; Expected = @('switch', 'develop') }
+			@{ Alias = 'gswd'; Branch = 'dev'; Expected = @('switch', 'dev') }
+		)
+
+		It '<Alias> delegates to the <Branch> branch' -TestCases $cases {
+			param($Alias, $Branch, $Expected)
+
+			$script:DevelopBranch = $Branch
+			& $Alias
+
+			$script:GitCalls | Should -HaveCount 1
+			$script:GitCalls[0] | Should -BeExactly $Expected
 		}
 	}
 
