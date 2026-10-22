@@ -50,3 +50,37 @@ Now you can use Git aliases.
 ```powershell
 New-Item -ItemType File $profile
 ```
+
+## 📖 Aliases
+
+See [aliases.md](./aliases.md) for the full list of available aliases and what each one does.
+
+You can also inspect them from PowerShell with `Get-Git-Aliases`.
+
+### `Get-Git-Aliases`
+
+Prints the definition of every Git alias in the module, or the definition of a single alias.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `-Alias`  | `String` | Optional. Name of the alias to inspect (e.g. `gst`). When omitted, all aliases are listed in a table. |
+
+Show all aliases:
+
+```powershell
+Get-Git-Aliases
+```
+
+Show the definition of a single alias:
+
+```powershell
+Get-Git-Aliases -Alias gst
+```
+
+The output is the alias' function body, so it shows exactly which `git` command the alias runs:
+
+```powershell
+git status $args
+```
+
+Passing an unknown alias name throws an error.
