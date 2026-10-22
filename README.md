@@ -2,6 +2,7 @@
 [![license](https://img.shields.io/github/license/gluons/powershell-git-aliases.svg?style=flat-square)](./LICENSE)
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/git-aliases.svg?style=flat-square)](https://www.powershellgallery.com/packages/git-aliases/)
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/git-aliases.svg?style=flat-square)](https://www.powershellgallery.com/packages/git-aliases/)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/gluons/powershell-git-aliases/test.yml?style=flat-square)](https://github.com/gluons/powershell-git-aliases/actions/workflows/test.yml)
 
 A [PowerShell](https://microsoft.com/powershell) module that provide partial **[Git](https://git-scm.com/)** aliases from [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)'s [git plugin](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git/).
 
@@ -40,7 +41,7 @@ Add below command into your PowerShell profile.
 Import-Module git-aliases -DisableNameChecking
 ```
 
-Then restart your PowerShell.  
+Then restart your PowerShell.
 Now you can use Git aliases.
 
 ---
