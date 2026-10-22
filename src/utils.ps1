@@ -33,21 +33,21 @@ function Get-Git-MainBranch {
 }
 
 function Get-Git-DevelopBranch {
-    git rev-parse --git-dir *> $null
-    if ($LASTEXITCODE -ne 0) {
-        return
-    }
+	git rev-parse --git-dir *> $null
+	if ($LASTEXITCODE -ne 0) {
+		return
+	}
 
-    $branches = @("dev", "devel", "develop", "development")
+	$branches = @("dev", "devel", "develop", "development")
 
-    foreach ($branch in $branches) {
-        & git show-ref -q --verify "refs/heads/$branch" *> $null
-        if ($LASTEXITCODE -eq 0) {
-            return $branch
-        }
-    }
+	foreach ($branch in $branches) {
+		& git show-ref -q --verify "refs/heads/$branch" *> $null
+		if ($LASTEXITCODE -eq 0) {
+			return $branch
+		}
+	}
 
-    return "develop"
+	return "develop"
 }
 
 # Don't add `Remove-Alias` on PowerShell >= 6.
