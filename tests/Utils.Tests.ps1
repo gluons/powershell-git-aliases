@@ -206,14 +206,53 @@ Describe 'utils.ps1 helpers' {
 			$list | Should -Match 'git pull --rebase'
 		}
 
-		It 'does not list internal helper functions' {
-			$list = Get-Git-Aliases | Out-String
+		It 'lists aliases as objects with clean Name and Definition properties' {
+			$records = @(Get-Git-Aliases)
 
-			# The helpers may still appear inside definitions of aliases
-			# that call them, so the check is anchored on the name column.
-			$list | Should -Not -Match '(?m)^Get-Git-CurrentBranch\s'
-			$list | Should -Not -Match '(?m)^Format-AliasDefinition\s'
-			$list | Should -Not -Match '(?m)^Write-Host-Deprecated\s'
+			$records.Count | Should -BeGreaterThan 0
+			foreach ($record in $records) {
+				$record.Name | Should -Not -BeNullOrEmpty
+				$record.Definition | Should -Not -BeNullOrEmpty
+				$record.Name | Should -Not -Match [regex]::Escape([char]27)
+				$record.Definition | Should -Not -Match [regex]::Escape([char]27)
+			}
+		}
+
+		It 'is filterable in the pipeline' {
+			$hits = @(Get-Git-Aliases | Select-String 'commit')
+
+			$hits.Count | Should -BeGreaterThan 0
+			foreach ($hit in $hits) {
+				$hit.Line | Should -Match 'commit'
+			}
+		}
+
+		It 'supports structural filtering over the output objects' {
+			$names = Get-Git-Aliases | Where-Object { $_.Name -eq 'gst' } | ForEach-Object Name
+
+			$names | Should -Be 'gst'
+		}
+
+		It 'renders a readable single-line string representation' {
+			$record = Get-Git-Aliases | Where-Object { $_.Name -eq 'gc' }
+
+			("$record") | Should -Match '^gc: git commit -v \$args$'
+		}
+
+		It 'does not list internal helper functions' {
+			$helperNames = @(
+				'Get-Git-CurrentBranch',
+				'Get-Git-MainBranch',
+				'Get-Git-DevelopBranch',
+				'Remove-Alias',
+				'Format-AliasDefinition',
+				'Get-Git-Aliases',
+				'Write-Host-Deprecated'
+			)
+
+			Get-Git-Aliases | ForEach-Object Name | ForEach-Object {
+				$_ | Should -Not -BeIn $helperNames
+			}
 		}
 	}
 }

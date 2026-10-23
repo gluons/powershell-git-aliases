@@ -86,6 +86,25 @@ function Format-AliasDefinition {
 
 <#
 .SYNOPSIS
+	Output type of `Get-Git-Aliases` when listing all aliases.
+.DESCRIPTION
+	Keeps the pipeline data for each alias (Name and Definition)
+	and provides a clean, single-line string representation for
+	text tools such as `Select-String`:
+	`gc: git commit -v $args`
+#>
+class GitAliasInfo {
+	[string] $Name
+	[string] $Definition
+
+	[string] ToString() {
+		$oneLineDefinition = $this.Definition -replace '\s*\r?\n\s*', ' '
+		return ('{0}: {1}' -f $this.Name, $oneLineDefinition)
+	}
+}
+
+<#
+.SYNOPSIS
 	Get git aliases' definition.
 .DESCRIPTION
 	Get definition of all git aliases or specific alias.
@@ -95,12 +114,11 @@ function Format-AliasDefinition {
 .EXAMPLE
 	PS C:\> Get-Git-Aliases -Alias gst
 	Get definition of `gst` alias.
+.EXAMPLE
+	PS C:\> Get-Git-Aliases | Select-String commit
+	List aliases whose pipe-friendly text contains `commit`.
 #>
 function Get-Git-Aliases ([string] $Alias) {
-	$esc = [char] 27
-	$green = 32
-	$magenta = 35
-
 	$Alias = $Alias.Trim()
 	$blacklist = @(
 		'Get-Git-CurrentBranch',
@@ -122,35 +140,12 @@ function Get-Git-Aliases ([string] $Alias) {
 		}
 	}
 
-	$aliases = $aliases | ForEach-Object {
-		$name = $_.Name
-		$definition = Format-AliasDefinition($_.Definition)
-		$definition = "$definition`n" # Add 1 line break for some row space
-
-		return [PSCustomObject]@{
-			Name       = $name
-			Definition = $definition
+	return $aliases | ForEach-Object {
+		return [GitAliasInfo]@{
+			Name       = $_.Name
+			Definition = Format-AliasDefinition $_.Definition
 		}
 	}
-
-	$cols = @(
-		@{
-			Name       = 'Name'
-			Expression = {
-				# Print alias name in green
-				"$esc[$($green)m$($_.Name)$esc[0m"
-			}
-		},
-		@{
-			Name       = 'Definition'
-			Expression = {
-				# Print alias definition in yellow
-				"$esc[$($magenta)m$($_.Definition)$esc[0m"
-			}
-		}
-	)
-
-	return Format-Table -InputObject $aliases -AutoSize -Wrap -Property $cols
 }
 
 <#

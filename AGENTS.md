@@ -9,6 +9,7 @@
 | `src/git-aliases.psd1` | Module manifest. Bump `ModuleVersion` before any release. |
 | `src/git-aliases.psm1` | Root module: dot-sources `aliases.ps1`, exports every alias via the `$FunctionsToExport` array. |
 | `src/aliases.ps1` | One `function <alias> { git ... $args }` per Git alias. |
+| `src/git-aliases.format.ps1xml` | Console format view for `Get-Git-Aliases` output (colors at render time only; registered via `FormatsToProcess`). |
 | `src/utils.ps1` | Helpers: `Get-Git-CurrentBranch`, `Get-Git-MainBranch`, `Get-Git-Aliases`, `Write-Host-Deprecated`, `Remove-Alias` shim. |
 | `aliases.md` | Documentation table of all aliases. Keep in sync with code. |
 | `tests/` | Pester unit tests (`*.Tests.ps1`). No build system needed — run with `Invoke-Pester`. See the test files for what they cover. |
