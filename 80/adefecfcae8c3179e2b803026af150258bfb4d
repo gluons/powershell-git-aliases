@@ -1,0 +1,25 @@
+tests/Aliases.Tests.ps1
+  s_c50dd6f305de6f::t_37ada7b3f931f4 136-137
+src/aliases.ps1
+  s_c50dd6f305de6f::t_48db53cca824e7 236,239
+aliases.md
+  s_c50dd6f305de6f::t_edfa69ab49fff2 74-75
+src/git-aliases.psm1
+  s_c50dd6f305de6f::t_c6b73a401e2a9f 75-76
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.3",
+  "base_commit_sha": "80adefecfcae8c3179e2b803026af150258bfb4d",
+  "prompts": {},
+  "sessions": {
+    "s_c50dd6f305de6f": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "214b616a-24ea-4b7c-acef-9c0dc926468b",
+        "model": "opencodego/OpenCode Go/opencodego:deepseek-v4-pro::session-2026-05-21-b"
+      },
+      "human_author": "Saran Tanpituckpong <sarunta@gmail.com>"
+    }
+  }
+}
