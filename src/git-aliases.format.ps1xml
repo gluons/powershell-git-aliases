@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Console view for objects produced by `Get-Git-Aliases`,
+	identified by the type name `GitAliases.AliasInfo`.
+
+	Coloring here only affects console rendering. The underlying
+	objects stay clean, so commands like `Get-Git-Aliases |
+	Select-String ...` keep working without ANSI escape codes.
+-->
+<Configuration>
+	<ViewDefinitions>
+		<View>
+			<Name>GitAliases.AliasInfo</Name>
+			<ViewSelectedBy>
+				<TypeName>GitAliasInfo</TypeName>
+			</ViewSelectedBy>
+			<TableControl>
+				<AutoSize />
+				<TableHeaders>
+					<TableColumnHeader>
+						<Label>Name</Label>
+						<Alignment>Left</Alignment>
+					</TableColumnHeader>
+					<TableColumnHeader>
+						<Label>Definition</Label>
+						<Alignment>Left</Alignment>
+					</TableColumnHeader>
+				</TableHeaders>
+				<TableRowEntries>
+					<TableRowEntry>
+						<TableColumnItems>
+							<TableColumnItem>
+								<!-- Alias name in green -->
+								<ScriptBlock>"$([char]27)[32m$($_.Name)$([char]27)[0m"</ScriptBlock>
+							</TableColumnItem>
+							<TableColumnItem>
+								<!-- Alias definition in magenta -->
+								<ScriptBlock>"$([char]27)[35m$($_.Definition)$([char]27)[0m"</ScriptBlock>
+							</TableColumnItem>
+						</TableColumnItems>
+					</TableRowEntry>
+				</TableRowEntries>
+			</TableControl>
+		</View>
+	</ViewDefinitions>
+</Configuration>
