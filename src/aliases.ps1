@@ -104,6 +104,9 @@ function gcl {
 function gclean {
 	git clean -df $args
 }
+function gcfx {
+	git commmit --fixup $args
+}
 function gcm {
 	$MainBranch = Get-Git-MainBranch
 
@@ -224,6 +227,9 @@ function glol {
 }
 function glola {
 	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all $args
+}
+function glom {
+	git log --oneline --decorate --color master $args
 }
 function gm {
 	git merge $args
