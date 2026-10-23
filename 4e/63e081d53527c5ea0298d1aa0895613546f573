@@ -1,0 +1,23 @@
+src/utils.ps1
+  h_fd41433461f86b 89-105,117-119,143-146
+  h_fd41433461f86b 87-88
+AGENTS.md
+  h_fd41433461f86b 12
+src/git-aliases.format.ps1xml
+  h_fd41433461f86b 1-46
+src/git-aliases.psd1
+  h_fd41433461f86b 63
+tests/Utils.Tests.ps1
+  h_fd41433461f86b 209-241,243-251,253-255
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.3",
+  "base_commit_sha": "4e63e081d53527c5ea0298d1aa0895613546f573",
+  "prompts": {},
+  "humans": {
+    "h_fd41433461f86b": {
+      "author": "Saran Tanpituckpong <sarunta@gmail.com>"
+    }
+  }
+}
